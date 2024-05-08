@@ -23,4 +23,4 @@ async def query_item(item: Item):
         item_dict.update({'price_with_tax': price_with_tax})
     return item_dict
 
-
+   

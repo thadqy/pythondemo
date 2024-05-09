@@ -7,7 +7,7 @@ app = FastAPI()
 items = {'foo': 'The Foo Wrestlers'}
 
 class ExceptionEnums():
-    xxex: Exception = HTTPException(status_code=)
+    xxex: Exception | None = None
 
 @app.get('/items/{item_id}')
 async def get_item(item_id: str):

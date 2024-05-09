@@ -1,7 +1,7 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Query
 from pydantic import BaseModel
 import uvicorn
-from typing import Union
+from typing import Union, List
 
 app = FastAPI()
 
@@ -23,4 +23,12 @@ async def query_item(item: Item):
         item_dict.update({'price_with_tax': price_with_tax})
     return item_dict
 
+@app.get('/test/test1')
+async def read_items(q: Union[str, None] = Query(default=None, max_length=2)):
+    return q
+
+@app.get('/test/test2')
+async def test2(q: Union[List[str], None] = None):
+    item = {'q': q}
+    return item
    
